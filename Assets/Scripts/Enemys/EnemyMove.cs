@@ -24,6 +24,7 @@ public class EnemyMove : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
              _goLeft=!_goLeft;
+             transform.localScale =- transform.localScale;
         }
     }
 }
