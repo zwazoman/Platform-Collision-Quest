@@ -8,47 +8,43 @@ public class PlayerInputs : MonoBehaviour
     private Vector2 _dashDirection;
     [SerializeField] private Dash _dash;
     [SerializeField] GameObject _sight;
-    private  Vector3 _mouseWorldPosition;
-    float rayLength = 0.19f;
+    float rayLength = 1f;
     public LayerMask layerMask;
-    private void Awake()
-    {
-        _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _mouseWorldPosition.z = 0;
-    }
+
     private void Update()
     {
+         Vector2 _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _sight.transform.position = _mouseWorldPosition;
-        if (Physics2D.Raycast(transform.position, Vector2.down, rayLength, layerMask.value) && _sight.transform.position.y < transform.position.y)
-        {
-            print("nope");
-            return;
-        }
-        if (Physics2D.Raycast(transform.position, Vector2.up, rayLength, layerMask.value) && _sight.transform.position.y > transform.position.y)
-        {
-            print("nope");
-            return;
-        }
-        if (Physics2D.Raycast(transform.position, Vector2.left, rayLength, layerMask.value) && _sight.transform.position.x < transform.position.x)
-        {
-            print("nope");
-            return;
-        }
-        if (Physics2D.Raycast(transform.position, Vector2.right, rayLength, layerMask.value) && _sight.transform.position.x > transform.position.x)
-        {
-            print("nope");
-            return;
-        }
     }
-    public void DetermineDirection(InputAction.CallbackContext context)
+    public void OnDetermineDirection(InputAction.CallbackContext context)
     {
         _sight.transform.position = context.ReadValue<Vector2>();
     }
 
-    public void DashDirection(InputAction.CallbackContext context)
+    public void OnDash(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            if (Physics2D.Raycast(transform.position, Vector2.down, rayLength, layerMask.value) && _sight.transform.position.y < transform.position.y)
+            {
+                print("nope");
+                return;
+            }
+            if (Physics2D.Raycast(transform.position, Vector2.up, rayLength, layerMask.value) && _sight.transform.position.y > transform.position.y)
+            {
+                print("nope");
+                return;
+            }
+            if (Physics2D.Raycast(transform.position, Vector2.left, rayLength, layerMask.value) && _sight.transform.position.x < transform.position.x)
+            {
+                print("nope");
+                return;
+            }
+            if (Physics2D.Raycast(transform.position, Vector2.right, rayLength, layerMask.value) && _sight.transform.position.x > transform.position.x)
+            {
+                print("nope");
+                return;
+            }
             _dashDirection = (_sight.transform.position - transform.position).normalized;
             _dash.DashTowards(_dashDirection);
         }
