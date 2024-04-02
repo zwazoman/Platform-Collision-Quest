@@ -296,12 +296,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918392188}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.072791, y: -0.36386418, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1750047678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967802311
 GameObject:
@@ -515,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 1468109748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.09, y: 1.83, z: 0}
+  m_LocalPosition: {x: -1.61, y: 1.83, z: 0}
   m_LocalScale: {x: 0.5342, y: 5.140204, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -894,7 +894,8 @@ Transform:
   m_LocalPosition: {x: -1.072791, y: -0.36386418, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 918392190}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1750047679
@@ -1030,7 +1031,6 @@ MonoBehaviour:
   _collisions: {fileID: 1750047682}
   _dash: {fileID: 1750047681}
   _sight: {fileID: 918392188}
-  _glued: {fileID: 1750047684}
 --- !u!114 &1750047681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,6 +1046,8 @@ MonoBehaviour:
   canDash: 1
   dashForce: 10
   _drop: {fileID: 1750047683}
+  _collisions: {fileID: 1750047682}
+  _playerInputs: {fileID: 1750047680}
 --- !u!114 &1750047682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1059,6 +1061,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dash: {fileID: 1750047681}
+  _playerInputs: {fileID: 0}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &1750047683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,9 +1077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76aa94b64e297aa468a03c8e71154c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropForce: 5
+  CanDrop: 1
+  _dropForce: 1
   _collisions: {fileID: 1750047682}
-  _glued: {fileID: 1750047684}
 --- !u!114 &1750047684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,7 +1268,6 @@ SceneRoots:
   - {fileID: 1704628657}
   - {fileID: 437258411}
   - {fileID: 1750047678}
-  - {fileID: 918392190}
   - {fileID: 2134500991}
   - {fileID: 1533074548}
   - {fileID: 1468109751}
