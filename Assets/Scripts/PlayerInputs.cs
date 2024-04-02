@@ -19,22 +19,22 @@ public class PlayerInputs : MonoBehaviour
     private void Update()
     {
         _sight.transform.position = _mouseWorldPosition;
-        if (Physics2D.Raycast(transform.position, Vector2.down, rayLength, layerMask.value) && mouseWorldPosition.y < transform.position.y)
+        if (Physics2D.Raycast(transform.position, Vector2.down, rayLength, layerMask.value) && _sight.transform.position.y < transform.position.y)
         {
             print("nope");
             return;
         }
-        if (Physics2D.Raycast(transform.position, Vector2.up, rayLength, layerMask.value) && mouseWorldPosition.y > transform.position.y)
+        if (Physics2D.Raycast(transform.position, Vector2.up, rayLength, layerMask.value) && _sight.transform.position.y > transform.position.y)
         {
             print("nope");
             return;
         }
-        if (Physics2D.Raycast(transform.position, Vector2.left, rayLength, layerMask.value) && mouseWorldPosition.x < transform.position.x)
+        if (Physics2D.Raycast(transform.position, Vector2.left, rayLength, layerMask.value) && _sight.transform.position.x < transform.position.x)
         {
             print("nope");
             return;
         }
-        if (Physics2D.Raycast(transform.position, Vector2.right, rayLength, layerMask.value) && mouseWorldPosition.x > transform.position.x)
+        if (Physics2D.Raycast(transform.position, Vector2.right, rayLength, layerMask.value) && _sight.transform.position.x > transform.position.x)
         {
             print("nope");
             return;
