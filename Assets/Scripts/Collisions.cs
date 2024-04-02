@@ -6,6 +6,7 @@ public class Collisions : MonoBehaviour
 {
     [SerializeField] Dash _dash;
     Rigidbody2D _rb;
+    public bool IsGlued { get; set; }
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class Collisions : MonoBehaviour
             _dash.canDash = true;
             _rb.velocity = Vector2.zero;
             _rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            IsGlued = true;
             //AudioManager.Instance.PlaySFX(AudioManager.Instance.impactSound, 1, Random.Range(0.8f, 1.2f));
             print("collé au mur");
         }
