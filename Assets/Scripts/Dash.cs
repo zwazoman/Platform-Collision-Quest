@@ -8,11 +8,13 @@ public class Dash : MonoBehaviour
     [SerializeField] Drop _drop;
     [SerializeField] Collisions _collisions;
     [SerializeField] PlayerInputs _playerInputs;
+    [SerializeField] public GameObject _cameraTarget;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
     public void DashTowards(Vector2 _dashDirection)
     {
         if (canDash)
