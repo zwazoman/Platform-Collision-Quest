@@ -29,6 +29,6 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(_seconds);
         Player = Instantiate(_playerPrefab, _spawnPoint.transform.position, Quaternion.identity);
-        _vCam.Follow = Player.transform;
+        _vCam.Follow = Player.GetComponent<Dash>()._cameraTarget.transform;
     }
 }

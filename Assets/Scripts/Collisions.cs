@@ -37,13 +37,13 @@ public class Collisions : MonoBehaviour
             _rb.velocity = Vector2.zero;
             _rb.constraints = RigidbodyConstraints2D.FreezePosition;
             IsGlued = true;
-            if (Physics2D.Raycast(transform.position, Vector2.down, _rayLength, _layerMask.value)) GluedDown = true;
+            if (Physics2D.Raycast(transform.position, Vector2.down, _rayLength, _layerMask.value)) { GluedDown = true; print("GluedDown"); }
 
-            if (Physics2D.Raycast(transform.position, Vector2.up, _rayLength, _layerMask.value)) GluedUp = true;
+            if (Physics2D.Raycast(transform.position, Vector2.up, _rayLength, _layerMask.value)) { GluedUp = true; print("GluedUp"); }
 
-            if (Physics2D.Raycast(transform.position, Vector2.left, _rayLength, _layerMask.value)) GluedLeft = true;
+            if (Physics2D.Raycast(transform.position, Vector2.left, _rayLength, _layerMask.value)) { GluedLeft = true; print("GluedLeft"); }
 
-            if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value)) GluedRight = true;
+            if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value)) { GluedRight = true; print("GluedRight"); }
 
             //AudioManager.Instance.PlaySFX(AudioManager.Instance.impactSound, 1, Random.Range(0.8f, 1.2f));
         }
@@ -66,9 +66,12 @@ public class Collisions : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         GluedDown = false;
+        print("not glued");
         GluedUp = false;
+        print("not glued");
         GluedLeft = false;
+        print("not glued");
         GluedRight = false;
-
+        print("not glued");
     }
 }
