@@ -24,6 +24,7 @@ public class Death : MonoBehaviour
         _impulseSource.GenerateImpulseWithForce(10);
         GameObject bloodStain = Instantiate(bloodstains[Random.Range(0, bloodstains.Count)], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         Destroy(bloodStain, 30);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.DeathSound,2f);
         Spawner.instance.StartSpawn(1.5f);
         Destroy(gameObject);
     }
