@@ -15,11 +15,11 @@ public class PlayerInputs : MonoBehaviour
     private void Update()
     {
          Vector2 _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //_sight.transform.position = _mouseWorldPosition;
+        _sight.transform.position = _mouseWorldPosition;
     }
     public void OnDetermineDirection(InputAction.CallbackContext context)
     {
-        _sight.transform.localPosition = context.ReadValue<Vector2>() * 5;
+        //_sight.transform.localPosition = context.ReadValue<Vector2>() * 5;
     }
 
     public void OnDash(InputAction.CallbackContext context)
