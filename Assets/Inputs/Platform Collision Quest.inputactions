@@ -70,7 +70,7 @@
                 {
                     "name": "",
                     "id": "b0969000-51f7-48c1-96ee-e9c373f82c1b",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
