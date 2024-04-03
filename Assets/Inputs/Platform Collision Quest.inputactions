@@ -69,6 +69,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b0969000-51f7-48c1-96ee-e9c373f82c1b",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "JoystickMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1c0c674f-45f5-4275-a7df-f379eadf91b9",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",

@@ -6,45 +6,27 @@ using UnityEngine.InputSystem;
 public class PlayerInputs : MonoBehaviour
 {
     private Vector2 _dashDirection;
-    [SerializeField] private Dash _dash;
-    [SerializeField] GameObject _sight;
-    float rayLength = 1f;
-    public LayerMask layerMask;
+    [SerializeField] Collisions _collisions;
+    [SerializeField] Dash _dash;
+    [SerializeField] public GameObject _sight;
+
+    
 
     private void Update()
     {
          Vector2 _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _sight.transform.position = _mouseWorldPosition;
+        //_sight.transform.position = _mouseWorldPosition;
     }
     public void OnDetermineDirection(InputAction.CallbackContext context)
     {
-        _sight.transform.position = context.ReadValue<Vector2>();
+        _sight.transform.localPosition = context.ReadValue<Vector2>() * 5;
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
+        print("try dash");
         if (context.performed)
         {
-            if (Physics2D.Raycast(transform.position, Vector2.down, rayLength, layerMask.value) && _sight.transform.position.y < transform.position.y)
-            {
-                print("nope");
-                return;
-            }
-            if (Physics2D.Raycast(transform.position, Vector2.up, rayLength, layerMask.value) && _sight.transform.position.y > transform.position.y)
-            {
-                print("nope");
-                return;
-            }
-            if (Physics2D.Raycast(transform.position, Vector2.left, rayLength, layerMask.value) && _sight.transform.position.x < transform.position.x)
-            {
-                print("nope");
-                return;
-            }
-            if (Physics2D.Raycast(transform.position, Vector2.right, rayLength, layerMask.value) && _sight.transform.position.x > transform.position.x)
-            {
-                print("nope");
-                return;
-            }
             _dashDirection = (_sight.transform.position - transform.position).normalized;
             _dash.DashTowards(_dashDirection);
         }
