@@ -45,7 +45,11 @@ public class Collisions : MonoBehaviour
 
             if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value)) { GluedRight = true; print("GluedRight"); }
 
-            //AudioManager.Instance.PlaySFX(AudioManager.Instance.impactSound, 1, Random.Range(0.8f, 1.2f));
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.ImpactSound, 1f, Random.Range(0.8f, 1.2f));
+        }
+        if(collision.gameObject.layer == 6)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.SolidImpactSound,2f);
         }
         if ( collision.gameObject.layer == 8)
         {
@@ -62,16 +66,17 @@ public class Collisions : MonoBehaviour
                 _death.Kill();
             }
         }
+        if(collision.gameObject.layer == 10)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.BumperSound);
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         GluedDown = false;
-        print("not glued");
         GluedUp = false;
-        print("not glued");
-        GluedLeft = false;
-        print("not glued");
+        GluedLeft = false;        
         GluedRight = false;
-        print("not glued");
+        IsGlued = false;
     }
 }

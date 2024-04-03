@@ -24,7 +24,7 @@ public class Dash : MonoBehaviour
             if(_collisions.GluedLeft && _playerInputs._sight.transform.localPosition.x < 0) return;
             if (_collisions.GluedRight && _playerInputs._sight.transform.localPosition.x > 0) return;
             _drop.LetGo();
-            //AudioManager.Instance.PlaySFX(AudioManager.Instance.dashSound, 1, 1);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.dashSounds[Random.Range(0, AudioManager.Instance.dashSounds.Count)]);
             _collisions.Attack = true;
             rb.AddForce(_dashDirection.normalized * _dashForce, ForceMode2D.Impulse);
             canDash = false;
