@@ -1,15 +1,10 @@
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
     public bool canDash = true;
     Rigidbody2D rb;
-    [SerializeField] float dashForce;
+    float _dashForce = 50f;
     [SerializeField] Drop _drop;
     [SerializeField] Collisions _collisions;
     [SerializeField] PlayerInputs _playerInputs;
@@ -28,13 +23,9 @@ public class Dash : MonoBehaviour
             if (_collisions.GluedRight && _playerInputs._sight.transform.localPosition.x > 0) return;
             _drop.LetGo();
             //AudioManager.Instance.PlaySFX(AudioManager.Instance.dashSound, 1, 1);
-            rb.velocity = _dashDirection.normalized * dashForce;
+            _collisions.Attack = true;
+            rb.AddForce(_dashDirection.normalized * _dashForce, ForceMode2D.Impulse);
             canDash = false;
-            print("dash");
-        }
-        else
-        {
-            print("can't dash");
         }
     }
 }

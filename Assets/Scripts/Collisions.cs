@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Collisions : MonoBehaviour
 {
     [SerializeField] Dash _dash;
     [SerializeField] Death _death;
     Rigidbody2D _rb;
+    [field:HideInInspector]
+    public bool Attack { get; set; }
+
     [field: HideInInspector]
     public bool GluedDown { get; set; }
 
@@ -32,7 +32,7 @@ public class Collisions : MonoBehaviour
     {
         if(collision.gameObject.layer == 3)
         {
-            print("suuu");
+            Attack = false;
             _dash.canDash = true;
             _rb.velocity = Vector2.zero;
             _rb.constraints = RigidbodyConstraints2D.FreezePosition;
@@ -50,6 +50,17 @@ public class Collisions : MonoBehaviour
         if ( collision.gameObject.layer == 8)
         {
             _death.Kill();
+        }
+        if (collision.gameObject.layer == 9)
+        {
+            if (Attack)
+            {
+                gameObject.SendMessage("Kill");
+            }
+            else
+            {
+                _death.Kill();
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

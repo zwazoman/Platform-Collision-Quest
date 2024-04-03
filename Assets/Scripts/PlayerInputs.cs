@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +22,6 @@ public class PlayerInputs : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        print("try dash");
         if (context.performed)
         {
             _dashDirection = (_sight.transform.position - transform.position).normalized;

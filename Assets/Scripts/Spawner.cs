@@ -1,6 +1,5 @@
 using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -19,11 +18,16 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        Spawn();
+        StartSpawn(0f);
     }
 
-    public void Spawn()
+    public void StartSpawn(float _seconds)
     {
+        StartCoroutine(Spawn(_seconds));
+    }
+    public IEnumerator Spawn(float _seconds)
+    {
+        yield return new WaitForSeconds(_seconds);
         Player = Instantiate(_playerPrefab, _spawnPoint.transform.position, Quaternion.identity);
         _vCam.Follow = Player.transform;
     }

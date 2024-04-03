@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,8 @@ public class Death : MonoBehaviour
             explode.transform.parent = null;
             explode.Scatter();
         }
-        Spawner.instance.Spawn();
+        print("LA COROUTINE");
+        Spawner.instance.StartSpawn(1.5f);
         Destroy(gameObject);
     }
 }
