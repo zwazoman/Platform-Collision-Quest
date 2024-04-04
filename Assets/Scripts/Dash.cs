@@ -4,7 +4,7 @@ public class Dash : MonoBehaviour
 {
     public bool canDash = true;
     Rigidbody2D rb;
-    float _dashForce = 50f;
+    float _dashForce = 30f;
     [SerializeField] Drop _drop;
     [SerializeField] Collisions _collisions;
     [SerializeField] PlayerInputs _playerInputs;

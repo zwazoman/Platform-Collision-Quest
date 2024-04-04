@@ -7,15 +7,24 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] Collisions _collisions;
     [SerializeField] Dash _dash;
     [SerializeField] public GameObject _sight;
+    [SerializeField] PlayerInput _playerInput;
+    Vector2 _mouseWorldPosition;
 
     private void Update()
     {
-         Vector2 _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+         _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //_sight.transform.position = _mouseWorldPosition;
     }
     public void OnDetermineDirection(InputAction.CallbackContext context)
     {
-        _sight.transform.localPosition = context.ReadValue<Vector2>() * 5;
+        if(_playerInput.currentControlScheme == "gamepad")
+        {
+            _sight.transform.localPosition = context.ReadValue<Vector2>() * 5;
+        }
+        else
+        {
+            _sight.transform.position = _mouseWorldPosition;
+        }
     }
 
     public void OnDash(InputAction.CallbackContext context)

@@ -1281,6 +1281,7 @@ MonoBehaviour:
   _collisions: {fileID: 5419171514318281457}
   _dash: {fileID: 3110735052879673654}
   _sight: {fileID: 474962886638446632}
+  _playerInput: {fileID: 2390820070034254889}
 --- !u!114 &2390820070034254889
 MonoBehaviour:
   m_ObjectHideFlags: 0
