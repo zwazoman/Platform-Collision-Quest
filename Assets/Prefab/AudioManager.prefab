@@ -64,6 +64,7 @@ MonoBehaviour:
   DeathSound: {fileID: 8300000, guid: acb2bd8ffe2e9154eae9ee4f8e1b0bc1, type: 3}
   WinSound: {fileID: 8300000, guid: 8d4a05652ed0660478840a155d5f3932, type: 3}
   StartSound: {fileID: 0}
+  SlowSound: {fileID: 8300000, guid: c229f9bb2c9fb014e98f0d7a3bd658c7, type: 3}
 --- !u!1 &7177865245687034863
 GameObject:
   m_ObjectHideFlags: 0

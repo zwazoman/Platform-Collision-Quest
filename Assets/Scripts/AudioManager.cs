@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip DeathSound;
     public AudioClip WinSound;
     public AudioClip StartSound;
+    public AudioClip SlowSound;
 
 
     private void Awake()

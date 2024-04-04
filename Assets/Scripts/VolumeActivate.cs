@@ -18,7 +18,7 @@ public class VolumeActivate : MonoBehaviour
     private void Update()
     {
         if (!Active) return;
-        _volume.weight = Mathf.Lerp(_volume.weight,1f,.004f);
+        _volume.weight = Mathf.Lerp(_volume.weight,1f,.01f);
     }
 
     private void DeactivateVolume()
