@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,12 +7,13 @@ using UnityEngine.Rendering;
 public class Spawner : MonoBehaviour
 {
     public static Spawner instance;
+    [SerializeField] VolumeActivate _volumeActivate;
     [SerializeField] CinemachineVirtualCamera _vCam;
     [SerializeField] GameObject _spawnPoint;
     [SerializeField] GameObject _playerPrefab;
-    [SerializeField] GameObject _volumeManager;
     [field:HideInInspector]
     public GameObject Player { get; private set; }
+    public event Action OnSpawn;
 
     private void Awake()
     {
@@ -31,7 +33,8 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(_seconds);
         Player = Instantiate(_playerPrefab, _spawnPoint.transform.position, Quaternion.identity);
+        Player.GetComponent<Death>()._VolumeActivate = _volumeActivate;
+        OnSpawn?.Invoke();
         _vCam.Follow = Player.GetComponent<Dash>()._cameraTarget.transform;
-        Player.GetComponent<Death>()._VolumeManager = _volumeManager;
     }
 }

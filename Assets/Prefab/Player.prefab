@@ -1395,6 +1395,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 58a50179-0fdf-498b-9e98-fc7574e64193
     m_ActionName: Player/Drop[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9038583473564373979}
+        m_TargetAssemblyTypeName: PlayerInputs, Assembly-CSharp
+        m_MethodName: OnRestart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fb341b78-09d1-408f-8037-a37c27d60ea9
+    m_ActionName: Player/Restart[/Keyboard/r,/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

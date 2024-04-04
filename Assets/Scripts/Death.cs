@@ -1,16 +1,17 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
+using Random = UnityEngine.Random;
 
 public class Death : MonoBehaviour
 {
     [SerializeField] List<Explode> explodeList = new List<Explode>();
     [SerializeField] List<GameObject> bloodstains = new List<GameObject>();
-    public GameObject _VolumeManager { get; set; }
-    
+    public VolumeActivate _VolumeActivate { get; set; }
     CinemachineImpulseSource _impulseSource;
 
     private void Awake()
@@ -29,8 +30,8 @@ public class Death : MonoBehaviour
         GameObject bloodStain = Instantiate(bloodstains[Random.Range(0, bloodstains.Count)], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         Destroy(bloodStain, 30);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.DeathSound,2f);
-        _VolumeManager.SetActive(true);
-        Spawner.instance.StartSpawn(1.5f);
+        _VolumeActivate.Active = true;
+        Spawner.instance.StartSpawn(.5f);
         Destroy(gameObject);
     }
 }

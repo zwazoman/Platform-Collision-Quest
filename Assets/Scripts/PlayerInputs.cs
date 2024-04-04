@@ -17,13 +17,22 @@ public class PlayerInputs : MonoBehaviour
     }
     public void OnDetermineDirection(InputAction.CallbackContext context)
     {
-        if(_playerInput.currentControlScheme == "gamepad")
+        if(_playerInput.currentControlScheme == "Gamepad")
         {
+            print("gamePad");
             _sight.transform.localPosition = context.ReadValue<Vector2>() * 5;
         }
         else
         {
             _sight.transform.position = _mouseWorldPosition;
+        }
+    }
+
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            GetComponent<Death>().Kill();
         }
     }
 
