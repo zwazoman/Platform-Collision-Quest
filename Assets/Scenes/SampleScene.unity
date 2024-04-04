@@ -5875,6 +5875,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4714756942277261799, guid: a00d98cb574364443b9702ad0fe9fd8b, type: 3}
   m_PrefabInstance: {fileID: 1086698173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1094403483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094403485}
+  - component: {fileID: 1094403484}
+  m_Layer: 0
+  m_Name: VolumeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1094403484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094403483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91305de3f9d1464d9a71e8455077354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: {fileID: 483170882}
+  Ismaxed: 1
+--- !u!4 &1094403485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094403483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5311835, y: 9.401109, z: 0.123087965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1116358383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6698,6 +6744,10 @@ PrefabInstance:
       propertyPath: _volume
       value: 
       objectReference: {fileID: 483170882}
+    - target: {fileID: 3557569656490824205, guid: d3ff7a56536e0fe40bd736517ad77be4, type: 3}
+      propertyPath: _volumeManager
+      value: 
+      objectReference: {fileID: 1094403483}
     - target: {fileID: 7296288062107148836, guid: d3ff7a56536e0fe40bd736517ad77be4, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -11276,3 +11326,4 @@ SceneRoots:
   - {fileID: 1069135706}
   - {fileID: 483170883}
   - {fileID: 168430407}
+  - {fileID: 1094403485}
