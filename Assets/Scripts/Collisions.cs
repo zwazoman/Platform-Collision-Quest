@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Collisions : MonoBehaviour
 {
     [SerializeField] Dash _dash;
+    [SerializeField] Death _death;
     Rigidbody2D _rb;
+    [field:HideInInspector]
+    public bool Attack { get; set; }
+
     [field: HideInInspector]
     public bool GluedDown { get; set; }
 
@@ -19,7 +20,6 @@ public class Collisions : MonoBehaviour
     [field: HideInInspector]
     public bool GluedRight { get; set; }
 
-    [SerializeField] PlayerInputs _playerInputs;
     float _rayLength = 0.5f;
     [SerializeField] LayerMask _layerMask;
     public bool IsGlued { get; set; }
@@ -32,41 +32,51 @@ public class Collisions : MonoBehaviour
     {
         if(collision.gameObject.layer == 3)
         {
-            print("suuu");
+            Attack = false;
             _dash.canDash = true;
             _rb.velocity = Vector2.zero;
             _rb.constraints = RigidbodyConstraints2D.FreezePosition;
             IsGlued = true;
-            if (Physics2D.Raycast(transform.position, Vector2.down, _rayLength, _layerMask.value))
+            if (Physics2D.Raycast(transform.position, Vector2.down, _rayLength, _layerMask.value)) { GluedDown = true; print("GluedDown"); }
+
+            if (Physics2D.Raycast(transform.position, Vector2.up, _rayLength, _layerMask.value)) { GluedUp = true; print("GluedUp"); }
+
+            if (Physics2D.Raycast(transform.position, Vector2.left, _rayLength, _layerMask.value)) { GluedLeft = true; print("GluedLeft"); }
+
+            if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value)) { GluedRight = true; print("GluedRight"); }
+
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.ImpactSound, 1f, Random.Range(0.8f, 1.2f));
+        }
+        if(collision.gameObject.layer == 6)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.SolidImpactSound,2f);
+        }
+        if ( collision.gameObject.layer == 8)
+        {
+            _death.Kill();
+        }
+        if (collision.gameObject.layer == 9)
+        {
+            if (Attack)
             {
-                GluedDown = true;
-                print("GlueDown");
+                gameObject.SendMessage("Kill");
             }
-            if (Physics2D.Raycast(transform.position, Vector2.up, _rayLength, _layerMask.value))
+            else
             {
-                GluedUp = true;
-                print("GluedUp");
+                _death.Kill();
             }
-            if (Physics2D.Raycast(transform.position, Vector2.left, _rayLength, _layerMask.value))
-            {
-                GluedLeft = true;
-                print("GluedLeft");
-            }
-            if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value))
-            {
-                GluedRight = true;
-                print("GluedRight");
-            }
-            //AudioManager.Instance.PlaySFX(AudioManager.Instance.impactSound, 1, Random.Range(0.8f, 1.2f));
-            print("collé au mur");
+        }
+        if(collision.gameObject.layer == 10)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.BumperSound);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         GluedDown = false;
         GluedUp = false;
-        GluedLeft = false;
+        GluedLeft = false;        
         GluedRight = false;
-
+        IsGlued = false;
     }
 }

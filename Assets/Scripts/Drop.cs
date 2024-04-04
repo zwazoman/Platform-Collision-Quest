@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +16,8 @@ public class Drop : MonoBehaviour
     {
         if (context.performed)
         {
+            if (!_collisions.IsGlued) return;
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.DropSound);
             LetGo();
         }
     }
