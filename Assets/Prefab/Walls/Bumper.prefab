@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9205669546024828746}
   - component: {fileID: 931183077233090263}
   - component: {fileID: 5529917195063724561}
+  - component: {fileID: -7685732639490301035}
   m_Layer: 10
   m_Name: Bumper
   m_TagString: Untagged
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 4.02}
   m_EdgeRadius: 0
+--- !u!114 &-7685732639490301035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685817712674040610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94719ebd1f662434eafff21ba757179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4714756942277261799}
   - component: {fileID: 9035681406147965977}
   - component: {fileID: 1558451403723819289}
+  - component: {fileID: 5084811467052503879}
   - component: {fileID: 6348303295569027281}
   m_Layer: 3
   m_Name: SoftWall
@@ -131,6 +132,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 4.02}
   m_EdgeRadius: 0
+--- !u!50 &5084811467052503879
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362978965756978003}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &6348303295569027281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _crackedSprite: {fileID: 21300000, guid: 5fba7bfbbe6cd7b44bef5d21c7a3e86b, type: 3}
+  _hitSprite: {fileID: 21300000, guid: b05c32c05dc570746bddac79a24552e9, type: 3}

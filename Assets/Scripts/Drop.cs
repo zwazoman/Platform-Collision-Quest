@@ -24,7 +24,6 @@ public class Drop : MonoBehaviour
 
     public void LetGo()
     {
-        rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (_collisions.GluedLeft) rb.AddForce(Vector2.right * _dropForce);
         if (_collisions.GluedRight) rb.AddForce(Vector2.left * _dropForce);

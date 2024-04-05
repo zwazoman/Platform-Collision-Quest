@@ -15,20 +15,21 @@ public class Dash : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
-        print(_playerInputs._sight.transform.localPosition);
-    }
-
     public void DashTowards(Vector2 _dashDirection)
     {
         if (canDash)
         {
-            if (_collisions.GluedDown && _playerInputs._sight.transform.localPosition.y < 0) return;
-            if(_collisions.GluedUp && _playerInputs._sight.transform.localPosition.y > 0) return;
-            if(_collisions.GluedLeft && _playerInputs._sight.transform.localPosition.x < 0) return;
-            if (_collisions.GluedRight && _playerInputs._sight.transform.localPosition.x > 0) return;
-            _drop.LetGo();
+            if (_collisions.GluedDown && _playerInputs._sight.transform.localPosition.y < 0) { print("nope"); return;} 
+            if(_collisions.GluedUp && _playerInputs._sight.transform.localPosition.y > 0) { print("nope");return; }
+            if(_collisions.GluedLeft && _playerInputs._sight.transform.localPosition.x < 0) { print("nope"); return;}
+            if (_collisions.GluedRight && _playerInputs._sight.transform.localPosition.x > 0) { print("nope"); return; }
+            _collisions.GluedDown = false;
+            _collisions.GluedUp = false;
+            _collisions.GluedLeft = false;
+            _collisions.GluedRight = false;
+            _collisions.IsGlued = false;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            print(rb.constraints);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.dashSounds[Random.Range(0, AudioManager.Instance.dashSounds.Count)]);
             _collisions.Attack = true;
             rb.AddForce(_dashDirection.normalized * _dashForce, ForceMode2D.Impulse);
