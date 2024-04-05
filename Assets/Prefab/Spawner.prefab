@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ee7230df9caa24ea5db94e2bfdf8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _volumeActivate: {fileID: 0}
   _vCam: {fileID: 0}
   _spawnPoint: {fileID: 7296288062107148836}
   _playerPrefab: {fileID: 6285406340095329934, guid: e9a7c306b89650f4e9fa29e5f8801299, type: 3}
