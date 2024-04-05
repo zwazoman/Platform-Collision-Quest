@@ -22,7 +22,7 @@ public class Collisions : MonoBehaviour
     [field: HideInInspector]
     public bool GluedRight { get; set; }
 
-    float _rayLength = 0.5f;
+    float _rayLength = 0.4f;
     [SerializeField] LayerMask _layerMask;
     public bool IsGlued { get; set; }
 
@@ -57,7 +57,8 @@ public class Collisions : MonoBehaviour
             if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value)) { GluedRight = true; print("GluedRight"); }
 
             AudioManager.Instance.PlaySFX(AudioManager.Instance.ImpactSound, 1f, Random.Range(0.8f, 1.2f));
-            Instantiate(_softWallParticles, transform.position, Quaternion.identity);
+            GameObject particle = Instantiate(_softWallParticles, transform.position, Quaternion.identity);
+            Destroy(particle, 1);
         }
         if(collision.gameObject.layer == 6)
         {

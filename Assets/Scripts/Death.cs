@@ -31,7 +31,8 @@ public class Death : MonoBehaviour
         GameObject bloodStain = Instantiate(bloodstains[Random.Range(0, bloodstains.Count)], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         Destroy(bloodStain, 30);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.DeathSound,2f);
-        Instantiate(_bloodParticles, transform.position, Quaternion.identity);
+        GameObject particles = Instantiate(_bloodParticles, transform.position, Quaternion.identity);
+        Destroy(particles, 1);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.SlowSound);
         _VolumeActivate.Active = true;
         Spawner.instance.StartSpawn(1f);
