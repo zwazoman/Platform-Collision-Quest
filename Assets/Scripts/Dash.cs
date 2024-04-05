@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Dash : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Dash : MonoBehaviour
     [SerializeField] Collisions _collisions;
     [SerializeField] PlayerInputs _playerInputs;
     [SerializeField] public GameObject _cameraTarget;
+    [SerializeField] VisualEffect _smokeEffect;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class Dash : MonoBehaviour
             print(rb.constraints);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.dashSounds[Random.Range(0, AudioManager.Instance.dashSounds.Count)]);
             _collisions.Attack = true;
+            _smokeEffect.Play();
             rb.AddForce(_dashDirection.normalized * _dashForce, ForceMode2D.Impulse);
             canDash = false;
         }

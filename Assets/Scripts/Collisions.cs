@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Collisions : MonoBehaviour
 {
     [SerializeField] Dash _dash;
     [SerializeField] Death _death;
     [SerializeField] GameObject _softWallParticles;
+    [SerializeField] VisualEffect _smokeEffect;
     Rigidbody2D _rb;
     Collider2D _coll;
     [field:HideInInspector]
@@ -49,6 +51,7 @@ public class Collisions : MonoBehaviour
             if (Physics2D.Raycast(transform.position, Vector2.right, _rayLength, _layerMask.value)) { GluedRight = true; print("GluedRight"); }
 
             AudioManager.Instance.PlaySFX(AudioManager.Instance.ImpactSound, 1f, Random.Range(0.8f, 1.2f));
+            _smokeEffect.Stop();
             GameObject particle = Instantiate(_softWallParticles, transform.position, Quaternion.identity);
             Destroy(particle, 1);
         }
