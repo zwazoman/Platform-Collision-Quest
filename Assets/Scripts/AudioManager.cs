@@ -22,7 +22,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip BumperSound;
     public AudioClip DeathSound;
     public AudioClip WinSound;
-    public AudioClip StartSound;
     public AudioClip SlowSound;
 
 
@@ -45,7 +44,6 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.clip = music;
         musicSource.Play();
-        PlaySFX(StartSound, 1, 1);
     }
     public void PlaySFX(AudioClip clip, float _volume = 1, float _pitch = 1)
     {

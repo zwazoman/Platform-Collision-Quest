@@ -8,8 +8,7 @@ public class Win : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
-            print("Victiore");
-            Application.Quit();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.WinSound);
         }
     }
 }
