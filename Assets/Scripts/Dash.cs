@@ -15,6 +15,11 @@ public class Dash : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        print(_playerInputs._sight.transform.localPosition);
+    }
+
     public void DashTowards(Vector2 _dashDirection)
     {
         if (canDash)

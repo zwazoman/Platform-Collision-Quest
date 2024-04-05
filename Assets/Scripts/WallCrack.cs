@@ -6,6 +6,7 @@ public class WallCrack : MonoBehaviour
 {
     SpriteRenderer _sr;
     [SerializeField] Sprite _crackedSprite;
+    [SerializeField] Sprite _hitSprite;
 
     private void Awake()
     {
@@ -15,7 +16,14 @@ public class WallCrack : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            _sr.sprite = _crackedSprite;
+            StartCoroutine(ChangeWall());
         }
+    }
+
+    IEnumerator ChangeWall()
+    {
+        _sr.sprite = _hitSprite;
+        yield return new WaitForSeconds(.2f);
+        _sr.sprite = _crackedSprite;
     }
 }
