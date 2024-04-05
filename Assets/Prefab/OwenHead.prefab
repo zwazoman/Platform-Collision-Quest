@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1678825648258950412}
   - component: {fileID: 1779039404056617660}
   - component: {fileID: 394835986696541029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OwenHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ec85d7a210a3b4b88da664f6433f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bloodParticles: {fileID: 745849740513818944, guid: 6d9c9bcb095f3cb4899eecd40dccdbcd, type: 3}
   _speed: 0.5
 --- !u!61 &1779039404056617660
 BoxCollider2D:
