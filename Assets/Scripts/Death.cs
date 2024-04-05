@@ -11,6 +11,7 @@ public class Death : MonoBehaviour
 {
     [SerializeField] List<Explode> explodeList = new List<Explode>();
     [SerializeField] List<GameObject> bloodstains = new List<GameObject>();
+    [SerializeField] GameObject _bloodParticles;
     public VolumeActivate _VolumeActivate { get; set; }
     CinemachineImpulseSource _impulseSource;
 
@@ -30,6 +31,7 @@ public class Death : MonoBehaviour
         GameObject bloodStain = Instantiate(bloodstains[Random.Range(0, bloodstains.Count)], transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         Destroy(bloodStain, 30);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.DeathSound,2f);
+        Instantiate(_bloodParticles, transform.position, Quaternion.identity);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.SlowSound);
         _VolumeActivate.Active = true;
         Spawner.instance.StartSpawn(1f);

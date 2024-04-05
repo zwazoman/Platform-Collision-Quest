@@ -8,6 +8,11 @@ public class CameraTargetMove : MonoBehaviour
 
     private void Update()
     {
-        transform.position = (Vector2)_player.transform.position + _player.GetComponent<Rigidbody2D>().velocity / 4;
+        transform.position = (Vector2)_player.transform.position + _player.GetComponent<Rigidbody2D>().velocity / 3;
+    }
+
+    private void OnDestroy()
+    {
+        //transform.position = _player.transform.position;
     }
 }
